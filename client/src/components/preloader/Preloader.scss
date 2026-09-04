@@ -1,0 +1,87 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none; // Panels handle their own visibility
+
+  &__panel {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #0c0c0d;
+
+    &--top {
+      top: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    &--bottom {
+      bottom: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+  }
+
+  &__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  &__brand {
+    display: flex;
+    overflow: hidden;
+
+    .letter {
+      display: inline-block;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-weight: 700;
+      font-size: clamp(40px, 8vw, 84px);
+      letter-spacing: 0.02em;
+      color: #f4f4f2;
+      transform-origin: bottom;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: #8f8f92;
+    font-variant-numeric: tabular-nums;
+
+    span:first-child {
+      font-size: 15px;
+      color: #f4f4f2;
+      font-weight: 600;
+    }
+  }
+
+  &__meta-label {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  // Once GSAP marks the sequence done,
+  // fade the whole overlay before unmounting.
+  &--done {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+}
+
+// Respect users who prefer reduced motion.
+@media (prefers-reduced-motion: reduce) {
+  .preloader {
+    &__brand .letter,
+    &__panel {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}
