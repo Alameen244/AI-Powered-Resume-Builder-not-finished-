@@ -43,7 +43,11 @@
       font-size: clamp(40px, 8vw, 84px);
       letter-spacing: 0.02em;
       color: #f4f4f2;
-      transform-origin: bottom;
+      transform-origin: bottom center;
+      /* Prevent first-paint flash */
+      opacity: 0;
+      transform: translate3d(0, -180px, 0);
+      will-change: transform, opacity;
     }
   }
 
