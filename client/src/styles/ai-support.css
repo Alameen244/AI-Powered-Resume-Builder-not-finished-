@@ -1,0 +1,107 @@
+.ai-support-section {
+  min-height: 90dvh;
+}
+
+.coach-console {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.48fr) minmax(260px, 0.52fr);
+  gap: clamp(22px, 5vw, 72px);
+  align-items: center;
+}
+
+.coach-document {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  min-height: 520px;
+  padding: clamp(26px, 5vw, 54px);
+  overflow: hidden;
+  color: #171912;
+  background: #eee6d7;
+  transform: rotate(-2deg);
+}
+
+.coach-document::after {
+  position: absolute;
+  inset: auto -15% 14% 48%;
+  height: 180px;
+  content: '';
+  background: rgba(200, 164, 93, 0.3);
+  filter: blur(28px);
+}
+
+.coach-document span {
+  width: 46px;
+  height: 6px;
+  background: var(--accent-2);
+}
+
+.coach-document strong {
+  max-width: 380px;
+  font: 600 clamp(2.1rem, 5vw, 5rem) / 0.95 'Clash Display', sans-serif;
+}
+
+.coach-document p {
+  max-width: 420px;
+  color: #34362d;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.coach-document i {
+  display: block;
+  width: min(420px, 100%);
+  height: 12px;
+  background: rgba(23, 25, 18, 0.16);
+}
+
+.coach-document i:nth-of-type(2) {
+  width: 74%;
+}
+
+.coach-document i:nth-of-type(3) {
+  width: 58%;
+}
+
+.coach-feed {
+  display: grid;
+  gap: 16px;
+}
+
+.coach-feed button {
+  width: 100%;
+  padding: 22px 24px;
+  border: 1px solid var(--panel-line);
+  color: var(--text-strong);
+  background: var(--panel-bg);
+  font: 700 1rem / 1.35 'Geist', sans-serif;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 620ms cubic-bezier(0.32, 0.72, 0, 1),
+    border-color 620ms cubic-bezier(0.32, 0.72, 0, 1),
+    background 620ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.coach-feed button:hover,
+.coach-feed button:focus-visible {
+  transform: translateX(18px) scale(1.015);
+  border-color: rgba(200, 164, 93, 0.5);
+  background: rgba(35, 32, 22, 0.88);
+  outline: none;
+}
+
+:root[data-theme='light'] .coach-document {
+  color: #171912;
+  background: #f6eedf;
+}
+
+:root[data-theme='light'] .coach-document p {
+  color: #536052;
+}
+
+:root[data-theme='light'] .coach-feed button:hover,
+:root[data-theme='light'] .coach-feed button:focus-visible {
+  color: #f8f4e9;
+  background: #1b2119;
+}
