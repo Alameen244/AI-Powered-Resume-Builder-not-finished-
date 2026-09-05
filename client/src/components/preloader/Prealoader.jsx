@@ -69,7 +69,7 @@ export default function Preloader({ onComplete }) {
                 y: -100,
                 rotation: 8,
                 duration: 0.15,
-              },
+                 },
               {
                 x: 20,
                 y: -45,
