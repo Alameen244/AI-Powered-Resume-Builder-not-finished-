@@ -25,7 +25,7 @@ export default function Preloader({ onComplete }) {
   const panelTopRef = useRef(null);
   const panelBottomRef = useRef(null);
 
-  const brand = "AAKP";
+  const brand = "MyResumeIsCooked";
 
   useEffect(() => {
     const ctx = gsap.context(() => {
