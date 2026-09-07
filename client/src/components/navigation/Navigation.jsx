@@ -14,7 +14,7 @@ export function Navigation({ mode, onToggleMode }) {
       <AppBar className="nav-shell" position="fixed" elevation={0}>
         <Box className="nav-pill" component="nav" aria-label="Primary">
           <a className="nav-mark" href="#top" aria-label="Go to top">
-            AAKP Builder
+            MyResumeIsCooked
           </a>
           <Box className="nav-links">
             {navItems.map((item) => (
