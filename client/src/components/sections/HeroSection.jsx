@@ -5,7 +5,7 @@ export function HeroSection() {
     <section className="section hero-section" id="top" aria-labelledby="hero-title">
       <div className="hero-copy">
         <p className="eyebrow">AI resume builder</p>
-        <h1 id="hero-title">Build a resume that thinks before it writes.</h1>
+        <h1 id="hero-title"><span className="heading-glass-text">Build a resume that thinks before it writes.</span></h1>
         <p className="hero-lede">
           Choose a template, let AI shape your experience into sharp bullets, and explore every section through an interactive 3D resume network.
         </p>

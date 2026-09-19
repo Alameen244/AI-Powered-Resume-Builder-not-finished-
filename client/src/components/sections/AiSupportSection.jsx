@@ -10,7 +10,7 @@ export function AiSupportSection() {
     <section className="section ai-support-section" aria-labelledby="support-title">
       <div className="section-heading">
         <p className="eyebrow">AI support</p>
-        <h2 id="support-title">A resume coach watches the document while you build.</h2>
+        <h2 id="support-title"><span className="heading-glass-text">A resume coach watches the document while you build.</span></h2>
       </div>
       <div className="coach-console">
         <div className="coach-document" aria-label="Resume document preview">

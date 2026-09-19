@@ -5,7 +5,7 @@ export function TechnologySection() {
     <section className="section tech-section" aria-labelledby="tech-title">
       <div className="section-heading">
         <p className="eyebrow">Resume intelligence</p>
-        <h2 id="tech-title">Every control exists to make the resume sharper.</h2>
+        <h2 id="tech-title"><span className="heading-glass-text">Every control exists to make the resume sharper.</span></h2>
       </div>
       <div className="tech-orbit" role="list">
         {technologies.map((tech, index) => (

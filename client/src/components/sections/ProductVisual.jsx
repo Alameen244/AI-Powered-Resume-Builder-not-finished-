@@ -27,7 +27,7 @@ export function ProductVisual({ type = 'draft', label }) {
       <div className="product-visual__body">
         <div className="product-visual__paper">
           <i style={{ background: visual.accent }} />
-          <h4>{visual.title}</h4>
+          <h4><span className="heading-glass-text">{visual.title}</span></h4>
           <p>{visual.role}</p>
           <span />
           <span />
