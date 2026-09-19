@@ -1,14 +1,26 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import Home from './pages/Home/Home.jsx'
 import Preloader from './components/preloader/Prealoader.jsx'
 
 export default function App() {
-   const [loading, setLoading] = useState(true);
+  const [contentReady, setContentReady] = useState(false)
+  const [showPreloader, setShowPreloader] = useState(true)
+
+  const handleRevealStart = useCallback(() => {
+    setContentReady(true)
+  }, [])
+
+  const handleComplete = useCallback(() => {
+    setShowPreloader(false)
+  }, [])
+
   return (
     <>
-      {loading && <Preloader onComplete={() => setLoading(false)} />}
-      < Home />
-        <div style={{ visibility: loading ? "hidden" : "visible" }}>
+      {showPreloader && (
+        <Preloader onRevealStart={handleRevealStart} onComplete={handleComplete} />
+      )}
+      <Home ready={contentReady} />
+        <div style={{ visibility: showPreloader ? 'hidden' : 'visible' }}>
         {/* <future RouterOrLayout /> */}
       </div>
     </>

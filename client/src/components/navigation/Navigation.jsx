@@ -8,6 +8,7 @@ const navItems = ['Builder', 'Templates', 'AI', 'Launch']
 
 export function Navigation({ mode, onToggleMode }) {
   const [open, setOpen] = useState(false)
+  const modeLabel = mode === 'light' ? 'Light' : 'Dark'
 
   return (
     <>
@@ -23,8 +24,13 @@ export function Navigation({ mode, onToggleMode }) {
               </Button>
             ))}
           </Box>
-          <button className="theme-toggle" type="button" onClick={onToggleMode} aria-label="Switch color theme">
-            <span>{mode === 'dark' ? 'Light' : 'Dark'}</span>
+          <button
+            className="theme-toggle"
+            type="button"
+            onClick={onToggleMode}
+            aria-label={`Current color theme: ${modeLabel}. Switch color theme`}
+          >
+            <span>{modeLabel}</span>
             <i aria-hidden="true" />
           </button>
           <IconButton

@@ -17,7 +17,7 @@ import "./Preloader.css";
  * client-side route changes (e.g. React Router pushing a new page),
 
  */
-export default function Preloader({ onComplete }) {
+export default function Preloader({ onRevealStart, onComplete }) {
   const [done, setDone] = useState(false);
   const rootRef = useRef(null);
   const lettersRef = useRef(null);
@@ -37,11 +37,7 @@ export default function Preloader({ onComplete }) {
 
         onComplete: () => {
           setDone(true);
-          // give the exit CSS transition time to finish before
-          // telling the parent app it can stop rendering this
-          setTimeout(() => {
-            onComplete && onComplete();
-          }, 700);
+          onComplete?.();
         },
       });
 
@@ -172,10 +168,12 @@ export default function Preloader({ onComplete }) {
         },
         "wipe",
       );
+
+      tl.call(() => onRevealStart?.(), [], "wipe");
     }, rootRef);
 
     return () => ctx.revert();
-  }, [onComplete]);
+  }, [onComplete, onRevealStart]);
 
   return (
     <div

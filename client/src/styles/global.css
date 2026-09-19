@@ -11,6 +11,7 @@
   --accent-2: #7f9b72;
   --button-fg: #080806;
   --button-bg: #f4efe6;
+
   color: var(--text-strong);
   background: var(--page-bg);
   color-scheme: dark;
@@ -32,6 +33,7 @@
   --accent-2: #526e47;
   --button-fg: #f8f4e9;
   --button-bg: #1b2119;
+
 }
 
 * {
@@ -41,6 +43,24 @@
 html {
   background: var(--page-bg) !important;
   scroll-behavior: auto;
+}
+
+/* Lenis owns interpolation while keeping native scrolling and focus behavior. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
 }
 
 body {

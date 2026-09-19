@@ -9,11 +9,12 @@ export const cameraPath = [
 export const lerpArray = (from, to, t) => from.map((value, index) => value + (to[index] - value) * t)
 
 export const sampleCameraPath = (progress) => {
-  const nextIndex = cameraPath.findIndex((point) => point.progress >= progress)
-  const next = cameraPath[Math.max(1, nextIndex)]
+  const clampedProgress = Math.min(1, Math.max(0, progress))
+  const nextIndex = cameraPath.findIndex((point) => point.progress >= clampedProgress)
+  const next = cameraPath[nextIndex === -1 ? cameraPath.length - 1 : Math.max(1, nextIndex)]
   const previous = cameraPath[Math.max(0, cameraPath.indexOf(next) - 1)]
   const span = next.progress - previous.progress || 1
-  const localT = Math.min(1, Math.max(0, (progress - previous.progress) / span))
+  const localT = Math.min(1, Math.max(0, (clampedProgress - previous.progress) / span))
 
   return {
     position: lerpArray(previous.position, next.position, localT),

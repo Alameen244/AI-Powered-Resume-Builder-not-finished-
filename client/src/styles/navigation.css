@@ -10,6 +10,7 @@
 
 .nav-pill {
   display: flex;
+  opacity: 0;
   align-items: center;
   gap: 16px;
   min-height: 54px;
