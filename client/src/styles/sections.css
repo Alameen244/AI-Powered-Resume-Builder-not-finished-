@@ -58,17 +58,15 @@
     opacity 760ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-.heading-glass-text {
-  position: relative;
-  display: inline-block;
-  isolation: isolate;
-}
+
 
 .heading-glass-text {
   position: relative;
   display: inline-block;
   isolation: isolate;
   padding: 0.05em 0.03em;
+  transition:
+    all 620ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .heading-glass-text::before {
@@ -219,6 +217,7 @@
 .story-columns article {
   padding: 24px 0;
   border-top: 1px solid rgba(244, 239, 230, 0.14);
+   transition: all 500ms cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .story-columns span {
@@ -463,7 +462,7 @@
 .tech-orbit span {
   color: #f4efe6;
   transform: translateY(calc((var(--i) % 3) * 10px));
-  cursor: default;
+  cursor : default;
 }
 
 .resume-card,
