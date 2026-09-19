@@ -1,2 +1,4 @@
 # AI-Powered-Resume-Builder-not-finished-
-collage project
+
+live demo :
+https://alameen244.github.io/AI-Powered-Resume-Builder-not-finished-/
