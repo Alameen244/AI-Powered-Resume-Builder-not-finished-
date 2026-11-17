@@ -1,6 +1,9 @@
 import { MagneticButton } from '../common/MagneticButton.jsx'
+import { useView } from '../../context/ViewContext.jsx'
 
 export function HeroSection() {
+  const { navigateTo } = useView()
+
   return (
     <section className="section hero-section" id="top" aria-labelledby="hero-title">
       <div className="hero-copy">
@@ -9,7 +12,15 @@ export function HeroSection() {
         <p className="hero-lede">
           Choose a template, let AI shape your experience into sharp bullets, and explore every section through an interactive 3D resume network.
         </p>
-        <MagneticButton href="#builder">Generate my resume</MagneticButton>
+        <MagneticButton
+          href="#builder"
+          onClick={(e) => {
+            e.preventDefault()
+            navigateTo('builder')
+          }}
+        >
+          Generate my resume
+        </MagneticButton>
       </div>
       <div className="hero-aside" aria-label="Experience status">
         <span>AI bullet rewrites</span>

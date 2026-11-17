@@ -1,0 +1,508 @@
+/* ========================================================
+   AI Resume Builder - Form & Page Styling
+   High-End Glassmorphism & Double-Bezel Architecture
+   ======================================================== */
+
+.builder-shell {
+  min-height: 100dvh;
+  position: relative;
+  z-index: 10;
+  padding: 1.25rem 1.5rem 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Floating Top Navigation Header */
+.builder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0.85rem 1.75rem;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-line);
+  border-radius: 999px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: sticky;
+  top: 1rem;
+  z-index: 50;
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.45);
+}
+
+.builder-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.builder-header__title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  letter-spacing: 0.02em;
+}
+
+.builder-header__badge {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(200, 164, 93, 0.14);
+  color: var(--accent);
+  border: 1px solid rgba(200, 164, 93, 0.28);
+  font-weight: 600;
+}
+
+.builder-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.left-header{
+  display: flex;
+  gap: 2rem;
+}
+
+.builder-btn {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  cursor: pointer;
+  border: 1px solid var(--panel-line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-strong);
+  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.builder-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.builder-btn--primary {
+  background: var(--button-bg);
+  color: var(--button-fg);
+  font-weight: 600;
+  border-color: transparent;
+}
+
+.builder-btn--primary:hover {
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(200, 164, 93, 0.35);
+  transform: translateY(-1px);
+}
+
+.builder-btn--ghost {
+  border-color: transparent;
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.builder-btn--ghost:hover {
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Hero Intro */
+.builder-intro {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.builder-intro h1 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.builder-intro p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Template Selector Row */
+.template-bar {
+  margin-bottom: 2.5rem;
+}
+
+.template-bar__label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  display: block;
+  text-align: center;
+}
+
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.template-choice {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-line);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.template-choice:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.template-choice.is-selected {
+  border-color: var(--accent);
+  background: rgba(200, 164, 93, 0.08);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.template-choice__accent {
+  width: 24px;
+  height: 4px;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.template-choice h4 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.05rem;
+  margin: 0 0 0.25rem;
+  color: var(--text-strong);
+}
+
+.template-choice p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Form Anchor for Smooth Navigation */
+.builder-form-anchor {
+  scroll-margin-top: 5.5rem;
+  display: block;
+  height: 0;
+  width: 100%;
+}
+
+/* Tab Navigation Pills */
+.builder-tabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  scrollbar-width: none;
+}
+
+.builder-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.builder-tab {
+  white-space: nowrap;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-line);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.builder-tab:hover {
+  color: var(--text-strong);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.builder-tab.is-active {
+  background: var(--text-strong);
+  color: var(--page-bg);
+  font-weight: 600;
+  border-color: var(--text-strong);
+}
+
+.builder-tab__error-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #ff5252;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+}
+
+/* Double-Bezel Card Container */
+.form-card-outer {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--panel-line);
+  border-radius: 2rem;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 24px 48px -18px rgba(0, 0, 0, 0.6);
+}
+
+.form-card-inner {
+  background: var(--panel-bg-strong);
+  border-radius: calc(2rem - 0.5rem);
+  padding: 2.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.form-section-header {
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--panel-line);
+  padding-bottom: 1rem;
+}
+
+.form-section-header h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.45rem;
+  margin: 0 0 0.25rem;
+  color: var(--text-strong);
+}
+
+.form-section-header p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Form Grid & Input Fields */
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.input-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.input-field--full {
+  grid-column: 1 / -1;
+}
+
+.input-label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-strong);
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-label .required {
+  color: var(--accent);
+}
+
+.input-control {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.92rem;
+  padding: 0.8rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--panel-line);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--text-strong);
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.input-control:focus {
+  border-color: var(--accent);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 2px rgba(200, 164, 93, 0.2);
+}
+
+.input-control.has-error {
+  border-color: #ff5252;
+  box-shadow: 0 0 0 1px #ff5252;
+}
+
+.input-error {
+  font-size: 0.75rem;
+  color: #ff5252;
+  margin-top: 0.2rem;
+}
+
+textarea.input-control {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Dynamic Item Card (Education, Experience, Project, Cert) */
+.dynamic-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--panel-line);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+  transition: border-color 0.2s ease;
+}
+
+.dynamic-item:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dynamic-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.dynamic-item__title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-strong);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dynamic-item__number {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(200, 164, 93, 0.15);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.dynamic-item__delete {
+  font-size: 0.8rem;
+  color: #ff6b6b;
+  background: transparent;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dynamic-item__delete:hover {
+  background: rgba(255, 107, 107, 0.15);
+  border-color: #ff6b6b;
+}
+
+.add-entry-btn {
+  width: 100%;
+  padding: 0.85rem;
+  border-radius: 0.85rem;
+  border: 1px dashed var(--panel-line);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'Geist', sans-serif;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.add-entry-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(200, 164, 93, 0.05);
+}
+
+/* Form Action Footer Bar */
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1.25rem 2rem;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-line);
+  border-radius: 999px;
+  backdrop-filter: blur(20px);
+}
+
+.form-errors-summary {
+  background: rgba(255, 82, 82, 0.1);
+  border: 1px solid rgba(255, 82, 82, 0.3);
+  color: #ff6b6b;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.88rem;
+}
+
+.form-errors-summary ul {
+  margin: 0.5rem 0 0 1.25rem;
+  padding: 0;
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  .builder-shell {
+    padding: 0.85rem 1rem 3rem;
+  }
+
+  .builder-header {
+    border-radius: 1.5rem;
+    padding: 0.85rem 1.25rem;
+    flex-direction: column;
+    gap: 0.75rem;
+    top: 0.5rem;
+  }
+
+  .form-card-inner {
+    padding: 1.5rem 1rem;
+  }
+
+  .input-grid,
+  .input-grid--3 {
+    grid-template-columns: 1fr;
+  }
+
+  .form-footer {
+    border-radius: 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-footer__left,
+  .form-footer__right {
+    width: 100%;
+    justify-content: center;
+  }
+}
