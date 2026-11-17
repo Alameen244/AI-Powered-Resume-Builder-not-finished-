@@ -1,6 +1,6 @@
 export function NetworkStory() {
   return (
-    <section className="section story-section" id="builder" aria-labelledby="network-title">
+    <section className="section story-section" id="story" aria-labelledby="network-title">
       <div className="story-panel">
         <p className="eyebrow">Builder engine</p>
         <h2 id="network-title"><span className="heading-glass-text">Your resume becomes a living map.</span></h2>

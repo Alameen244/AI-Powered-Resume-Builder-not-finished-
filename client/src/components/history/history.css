@@ -1,0 +1,231 @@
+/* ========================================================
+   Resume History Modal & Table Styling
+   ======================================================== */
+
+.history-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  animation: fadeIn 0.25s ease;
+}
+
+.history-modal {
+  width: 100%;
+  max-width: 860px;
+  max-height: 85vh;
+  background: var(--panel-bg-strong);
+  border: 1px solid var(--panel-line);
+  border-radius: 2rem;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.history-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--panel-line);
+  padding-bottom: 1rem;
+}
+
+.history-modal__title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.45rem;
+  margin: 0 0 0.25rem;
+  color: var(--text-strong);
+}
+
+.history-modal__subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.history-modal__close {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--panel-line);
+  color: var(--text-strong);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.history-modal__close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+/* Privacy Notice Banner */
+.history-disclaimer {
+  background: rgba(200, 164, 93, 0.08);
+  border: 1px solid rgba(200, 164, 93, 0.25);
+  border-radius: 0.85rem;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.45;
+}
+
+.history-disclaimer strong {
+  color: var(--accent);
+}
+
+/* History Content Scroll Area */
+.history-scroll {
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.history-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.history-scroll::-webkit-scrollbar-thumb {
+  background: var(--panel-line);
+  border-radius: 999px;
+}
+
+/* History Table */
+.history-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+.history-table th {
+  padding: 0.6rem 1rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--panel-line);
+}
+
+.history-table tr.history-row {
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 0.2s ease;
+}
+
+.history-table tr.history-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.history-table td {
+  padding: 0.85rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--text-strong);
+}
+
+.history-table td:first-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.04);
+  border-top-left-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+  font-weight: 500;
+}
+
+.history-table td:last-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  text-align: right;
+}
+
+.template-badge {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-block;
+}
+
+.template-badge--creative {
+  background: rgba(200, 164, 93, 0.15);
+  color: #c8a45d;
+  border: 1px solid rgba(200, 164, 93, 0.3);
+}
+
+.template-badge--developer {
+  background: rgba(127, 155, 114, 0.15);
+  color: #7f9b72;
+  border: 1px solid rgba(127, 155, 114, 0.3);
+}
+
+.template-badge--systems {
+  background: rgba(157, 96, 66, 0.15);
+  color: #9d6042;
+  border: 1px solid rgba(157, 96, 66, 0.3);
+}
+
+.delete-record-btn {
+  background: transparent;
+  border: none;
+  color: #ff6b6b;
+  cursor: pointer;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.delete-record-btn:hover {
+  background: rgba(255, 107, 107, 0.15);
+}
+
+.history-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}
+
+.history-empty h4 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+  color: var(--text-strong);
+}
+
+.history-modal__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--panel-line);
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .history-modal {
+    padding: 1.5rem;
+  }
+  .history-table th:nth-child(3),
+  .history-table td:nth-child(3) {
+    display: none;
+  }
+}

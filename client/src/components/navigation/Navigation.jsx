@@ -3,11 +3,13 @@ import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
+import { useView } from '../../context/ViewContext.jsx'
 
 const navItems = ['Builder', 'Templates', 'AI', 'Launch']
 
 export function Navigation({ mode, onToggleMode }) {
   const [open, setOpen] = useState(false)
+  const { navigateTo } = useView()
   const modeLabel = mode === 'light' ? 'Light' : 'Dark'
 
   return (
@@ -19,7 +21,16 @@ export function Navigation({ mode, onToggleMode }) {
           </a>
           <Box className="nav-links">
             {navItems.map((item) => (
-              <Button key={item} href={`#${item.toLowerCase()}`}>
+              <Button
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                onClick={(e) => {
+                  if (item.toLowerCase() === 'builder') {
+                    e.preventDefault()
+                    navigateTo('builder')
+                  }
+                }}
+              >
                 {item}
               </Button>
             ))}
@@ -50,7 +61,13 @@ export function Navigation({ mode, onToggleMode }) {
             key={item}
             href={`#${item.toLowerCase()}`}
             style={{ '--delay': `${110 + index * 55}ms` }}
-            onClick={() => setOpen(false)}
+            onClick={(e) => {
+              setOpen(false)
+              if (item.toLowerCase() === 'builder') {
+                e.preventDefault()
+                navigateTo('builder')
+              }
+            }}
           >
             {item}
           </a>

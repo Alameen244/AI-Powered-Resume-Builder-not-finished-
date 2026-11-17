@@ -34,7 +34,7 @@ export function useLenisGsap(disabled = false) {
 
       const anchor = event.target.closest('a[href^="#"]')
       const target = anchor?.getAttribute('href')
-      if (!target || target === '#') return
+      if (!target || target === '#' || target === '#builder') return
 
       const element = document.querySelector(target)
       if (!element) return

@@ -1,0 +1,133 @@
+/* AI Generation Status Card */
+.ai-status-card {
+  border-radius: 1.25rem;
+  padding: 1.75rem 2rem;
+  margin: 1.75rem 0;
+  border: 1px solid var(--panel-line);
+  background: var(--panel-bg);
+  backdrop-filter: blur(20px);
+  animation: fadeIn 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.ai-status-card--loading {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-color: rgba(200, 164, 93, 0.4);
+  background: rgba(200, 164, 93, 0.05);
+  box-shadow: 0 0 35px -10px rgba(200, 164, 93, 0.25);
+}
+
+.ai-spinner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid rgba(200, 164, 93, 0.2);
+  border-top-color: var(--accent);
+  animation: spin 0.9s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ai-status-info h4 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.15rem;
+  margin: 0 0 0.35rem;
+  color: var(--text-strong);
+}
+
+.ai-status-info p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* Error Card */
+.ai-status-card--error {
+  border-color: rgba(255, 82, 82, 0.4);
+  background: rgba(255, 82, 82, 0.06);
+}
+
+.ai-status-card--error h4 {
+  color: #ff6b6b;
+  margin: 0.5rem 0 0.35rem;
+}
+
+.ai-error-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(255, 82, 82, 0.2);
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+/* Success Card */
+.ai-status-card--success {
+  border-color: rgba(127, 155, 114, 0.45);
+  background: rgba(127, 155, 114, 0.08);
+}
+
+.ai-success-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(127, 155, 114, 0.2);
+  color: #7f9b72;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.ai-status-card--success h4 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.25rem;
+  margin: 0 0 0.4rem;
+  color: var(--text-strong);
+}
+
+.ai-generated-summary {
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--panel-line);
+}
+
+.ai-generated-summary strong {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ai-generated-summary p {
+  margin: 0;
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-strong);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
