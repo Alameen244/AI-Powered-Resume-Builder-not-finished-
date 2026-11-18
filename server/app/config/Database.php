@@ -32,6 +32,12 @@ class Database
                 PDO::ATTR_EMULATE_PREPARES   => false,
             ];
 
+            // Enable SSL for cloud MySQL providers (Aiven, TiDB Cloud, Railway, etc.) if requested
+            $sslEnabled = filter_var(Env::get('DB_SSL', false), FILTER_VALIDATE_BOOLEAN);
+            if ($sslEnabled && defined('PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT')) {
+                $options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
+            }
+
             try {
                 self::$connection = new PDO($dsn, $user, $pass, $options);
             } catch (PDOException $e) {
