@@ -30,3 +30,4 @@ temp/
 .agents/
 .env
 package.json
+.env
