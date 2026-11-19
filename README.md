@@ -1,6 +1,6 @@
-# AI-Powered Resume Builder & Generator (Full-Stack College Project)
+# AI-Powered Resume Builder & Generator 
 
-> An enterprise-grade, full-stack AI Resume Generator built with **React 19**, **Three.js**, **GSAP**, **Core PHP 8.2 MVC (no frameworks)**, **MySQL (MariaDB)**, and the **Google Gemini API**. Features an interactive 3D landing page, modular multi-step resume builder, AI-driven professional enhancement, real-time A4 document previewing, client-side vector-grade PDF export, and a zero-PII privacy-preserving metadata history system.
+>  full-stack AI Resume Generator built with **React 19**, **Three.js**, **GSAP**, **Core PHP 8.2 MVC (no frameworks)**, **MySQL (MariaDB)**, and the **Google Gemini API**. Features an interactive 3D landing page, modular multi-step resume builder, AI-driven professional enhancement, real-time A4 document previewing, client-side vector-grade PDF export, and a zero-PII privacy-preserving metadata history system.
 
 ---
 
@@ -481,3 +481,7 @@ Use this quick guide during your project presentation or lab viva:
 ## License
 
 This project was developed for educational and academic submission purposes. Licensed under the [MIT License](LICENSE).
+# AI-Powered-Resume-Builder-not-finished-
+
+live demo :
+https://alameen244.github.io/AI-Powered-Resume-Builder-not-finished-/

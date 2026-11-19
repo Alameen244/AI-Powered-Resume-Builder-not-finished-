@@ -22,4 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+node_modules/
+dist/
+uploads/
+temp/
+.agents/
+.env
+package.json
 .env
