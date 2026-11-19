@@ -32,10 +32,35 @@ class Database
                 PDO::ATTR_EMULATE_PREPARES   => false,
             ];
 
-            // Enable SSL for cloud MySQL providers (Aiven, TiDB Cloud, Railway, etc.) if requested
-            $sslEnabled = filter_var(Env::get('DB_SSL', false), FILTER_VALIDATE_BOOLEAN);
-            if ($sslEnabled && defined('PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT')) {
-                $options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
+            // Enable SSL for cloud MySQL providers (TiDB Cloud, Aiven, Railway, etc.)
+            $isCloudHost  = str_contains($host, 'tidbcloud.com') || str_contains($host, 'aivencloud.com') || str_contains($host, 'rlwy.net');
+            $sslRequested = filter_var(Env::get('DB_SSL', false), FILTER_VALIDATE_BOOLEAN) || $isCloudHost;
+
+            if ($sslRequested) {
+                $caBundle = Env::get('DB_SSL_CA');
+                if (!$caBundle) {
+                    $candidates = [
+                        'C:\\xampp\\apache\\bin\\curl-ca-bundle.crt',
+                        ini_get('openssl.cafile') ?: '',
+                        ini_get('curl.cainfo') ?: '',
+                        '/etc/ssl/certs/ca-certificates.crt',
+                        '/etc/pki/tls/certs/ca-bundle.crt',
+                        '/etc/ssl/cert.pem',
+                    ];
+                    foreach ($candidates as $cand) {
+                        if (!empty($cand) && file_exists($cand)) {
+                            $caBundle = $cand;
+                            break;
+                        }
+                    }
+                }
+
+                if ($caBundle && defined('PDO::MYSQL_ATTR_SSL_CA')) {
+                    $options[PDO::MYSQL_ATTR_SSL_CA] = $caBundle;
+                }
+                if (defined('PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT')) {
+                    $options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
+                }
             }
 
             try {
