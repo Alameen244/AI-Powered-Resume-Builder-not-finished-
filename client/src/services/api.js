@@ -17,12 +17,17 @@ const API_BASE_URL =
  * @returns {Promise<Object>} Formatted AI resume content
  */
 export async function generateResumeAI(resumeData) {
-  // Candidate fallback URLs for local dev flexibility
-  const endpoints = [
-    `${API_BASE_URL}/api/ai/generate-resume`,
-    `http://127.0.0.1:8000/api/ai/generate-resume`,
-    `http://localhost:8000/api/ai/generate-resume`,
-  ]
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+
+  // In production or when VITE_API_URL is configured, target the specified backend
+  const endpoints = API_BASE_URL
+    ? [`${API_BASE_URL}/api/ai/generate-resume`]
+    : isLocalhost
+      ? [
+          'http://localhost/myResumeIsCooked/server/public/api/ai/generate-resume',
+          'http://127.0.0.1:8000/api/ai/generate-resume',
+        ]
+      : ['/api/ai/generate-resume']
 
   let lastError = null
 

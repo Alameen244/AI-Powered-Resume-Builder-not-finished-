@@ -10,7 +10,7 @@ ini_set('display_errors', '0');
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . DIRECTORY_SEPARATOR . 'app');
 
-// Register custom autoloader for App\ namespace
+// Register custom autoloader for App\ namespace (case-safe for Linux & Windows)
 spl_autoload_register(function (string $class) {
     $prefix = 'App\\';
     if (!str_starts_with($class, $prefix)) {
@@ -18,10 +18,28 @@ spl_autoload_register(function (string $class) {
     }
 
     $relativeClass = substr($class, strlen($prefix));
-    $file = APP_PATH . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $relativeClass) . '.php';
 
-    if (file_exists($file)) {
-        require_once $file;
+    // 1. Try exact path
+    $exactFile = APP_PATH . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $relativeClass) . '.php';
+    if (file_exists($exactFile)) {
+        require_once $exactFile;
+        return;
+    }
+
+    // 2. Try lowercased directory path (Linux case-sensitivity fix: Middleware/ -> middleware/)
+    $parts = explode('\\', $relativeClass);
+    $className = array_pop($parts);
+    $subDir = !empty($parts) ? strtolower(implode(DIRECTORY_SEPARATOR, $parts)) . DIRECTORY_SEPARATOR : '';
+    $lowerDirFile = APP_PATH . DIRECTORY_SEPARATOR . $subDir . $className . '.php';
+    if (file_exists($lowerDirFile)) {
+        require_once $lowerDirFile;
+        return;
+    }
+
+    // 3. Try fully lowercased path
+    $lowerFile = APP_PATH . DIRECTORY_SEPARATOR . strtolower(str_replace('\\', DIRECTORY_SEPARATOR, $relativeClass)) . '.php';
+    if (file_exists($lowerFile)) {
+        require_once $lowerFile;
     }
 });
 
